@@ -1,5 +1,8 @@
 const express = require('express');
 const { addSalesPosts } = require('../../controllers/salesPosts/addSalesPosts');
+const {
+  addUrlForSalesPosts,
+} = require('../../controllers/salesPosts/addUrlForSalesPosts');
 const { authenticate, upload, isAdmin } = require('../../middlewares');
 const { getSalesPosts } = require('../../controllers/salesPosts/getSalesPosts');
 
@@ -11,6 +14,13 @@ salesPostsRouter.patch(
   authenticate,
   isAdmin,
   addSalesPosts
+);
+
+salesPostsRouter.patch(
+  '/updateUrl',
+  authenticate,
+  isAdmin,
+  addUrlForSalesPosts
 );
 
 salesPostsRouter.get('/get', getSalesPosts);

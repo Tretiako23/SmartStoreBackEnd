@@ -14,6 +14,7 @@ const addSalesPosts = async (req, res) => {
 
     for (const path of pathNewPhotos) {
       const result = await uploadImage(path);
+
       newSalesPostsPhotos.push({ url: result.url, id: result.public_id });
     }
   }
