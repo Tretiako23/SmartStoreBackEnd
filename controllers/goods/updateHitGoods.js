@@ -2,7 +2,8 @@ const { HttpError, ctrlWrapper } = require('../../helpers');
 const { Goods } = require('../../models/MongooseModels');
 
 const updateHitGoods = async (req, res) => {
-  const { id, isHit } = req.params;
+  const { id } = req.params;
+  const isHit = req.params.isHit === 'true';
 
   const goodsItem = await Goods.findById(id);
   if (!goodsItem) {
