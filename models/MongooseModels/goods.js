@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const handleMongooseError = require('../../middlewares/handleMongooseError');
 
-const { sendEmailAboutGoodsCount } = require('../../service/mail');
+// const { sendEmailAboutGoodsCount } = require('../../service/mail');
 
 const goodSchema = new Schema(
   {
@@ -79,6 +79,11 @@ const goodSchema = new Schema(
 
     imgId: {
       type: String,
+    },
+
+    isHit: {
+      type: Boolean,
+      default: false,
     },
 
     extraPhotos: Schema.Types.Mixed,

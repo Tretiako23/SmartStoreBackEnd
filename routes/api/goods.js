@@ -14,6 +14,7 @@ const {
   removeGoods,
   updateGoods,
   updateGoodsStatus,
+  updateHitGoods,
   getAllGoodsByOwner,
   addReviews,
   addSubscribers,
@@ -55,6 +56,14 @@ goodsRouter.put(
   isAdmin,
   isValidId,
   updateGoods
+);
+
+goodsRouter.put(
+  '/:id/:isHit',
+  authenticate,
+  isAdmin,
+  isValidId,
+  updateHitGoods
 );
 
 goodsRouter.put('/addReviews/:id', authenticate, isValidId, addReviews);
