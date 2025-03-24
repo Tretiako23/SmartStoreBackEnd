@@ -58,6 +58,8 @@ goodsRouter.put(
   updateGoods
 );
 
+goodsRouter.put('/addReviews/:id', isValidId, addReviews);
+
 goodsRouter.put(
   '/:id/:isHit',
   authenticate,
@@ -65,8 +67,6 @@ goodsRouter.put(
   isValidId,
   updateHitGoods
 );
-
-goodsRouter.put('/addReviews/:id', authenticate, isValidId, addReviews);
 
 goodsRouter.delete('/:id', authenticate, isAdmin, isValidId, removeGoods);
 
